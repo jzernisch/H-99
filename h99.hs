@@ -38,3 +38,9 @@ module H99 where
 
   myReverse :: [a] -> [a]
   myReverse = foldl (flip (:)) []
+
+
+  -- Problem 6
+
+  isPalindrome :: Eq a => [a] -> Bool
+  isPalindrome x = x == myReverse x

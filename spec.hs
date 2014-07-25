@@ -42,3 +42,12 @@ main = hspec $ do
 
     it "reverses a list" $
       myReverse [1,2,3] `shouldBe` [3,2,1]
+
+  describe "isPalindrome (Problem 6)" $ do
+
+    it "returns True if the list is a palindrome" $
+      isPalindrome [1,2,3,2,1] `shouldBe` True
+
+    it "returns False if the list is not a palindrome" $
+      isPalindrome [1,2,3,5,1] `shouldBe` False
+
