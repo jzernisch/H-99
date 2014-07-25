@@ -32,3 +32,9 @@ module H99 where
   myLength :: [a] -> Int
   myLength [] = 0
   myLength (_:xs) = 1 + myLength xs
+
+
+  -- Problem 5
+
+  myReverse :: [a] -> [a]
+  myReverse = foldl (flip (:)) []

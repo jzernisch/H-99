@@ -37,3 +37,8 @@ main = hspec $ do
 
     it "returns the length of a list" $
       myLength [1,2,3] `shouldBe` 3
+
+  describe "myReverse (Problem 5)" $ do
+
+    it "reverses a list" $
+      myReverse [1,2,3] `shouldBe` [3,2,1]
