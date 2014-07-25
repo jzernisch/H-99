@@ -65,3 +65,8 @@ main = hspec $ do
 
     it "packs consecutive duplicates into sublists" $
       pack [1,1,2,3,3,3,1,2] `shouldBe` [[1,1],[2],[3,3,3],[1],[2]]
+
+  describe "encode (Problem 10)" $ do
+
+    it "returns the so-called run-length encoding of a list" $
+      encode "aaaabccaadeeee" `shouldBe` [(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')]

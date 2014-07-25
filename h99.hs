@@ -75,3 +75,10 @@ module H99 where
     | x == y    = (x:(head packedTail)):(tail packedTail)
     | otherwise = [x]:packedTail
     where packedTail = pack (y:xs)
+
+
+  -- Problem 10
+
+  encode :: Eq a => [a] -> [(Int,a)]
+  encode xs = map makeTuple (pack xs)
+    where makeTuple xs = (length xs, head xs)
