@@ -51,3 +51,7 @@ main = hspec $ do
     it "returns False if the list is not a palindrome" $
       isPalindrome [1,2,3,5,1] `shouldBe` False
 
+  describe "flatten (Problem 7)" $ do
+
+    it "flattens a NestedList and returns a list" $
+      flatten (List [Elem 4, List [Elem 2, List [Elem 1, Elem 5]], Elem 3]) `shouldBe` [4,2,1,5,3]
