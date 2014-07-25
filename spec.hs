@@ -60,3 +60,8 @@ main = hspec $ do
 
     it "removes consecutive duplicates from a list" $
       compress [1,1,2,3,3,3,1,2] `shouldBe` [1,2,3,1,2]
+
+  describe "pack (Problem 9)" $ do
+
+    it "packs consecutive duplicates into sublists" $
+      pack [1,1,2,3,3,3,1,2] `shouldBe` [[1,1],[2],[3,3,3],[1],[2]]

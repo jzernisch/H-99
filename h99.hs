@@ -64,3 +64,14 @@ module H99 where
   compress (x:y:xs)
     | x == y    = compress (y:xs)
     | otherwise = x:(compress (y:xs))
+
+
+  -- Problem 9
+
+  pack :: Eq a => [a] -> [[a]]
+  pack [] = []
+  pack [x] = [[x]]
+  pack (x:y:xs)
+    | x == y    = (x:(head packedTail)):(tail packedTail)
+    | otherwise = [x]:packedTail
+    where packedTail = pack (y:xs)
