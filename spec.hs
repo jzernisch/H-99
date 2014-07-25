@@ -9,7 +9,27 @@ main = hspec $ do
   describe "myLast (Problem 1)" $ do
 
     it "returns the last element of a list" $
-      myLast [1,2,3] `shouldBe` 3
+      myLast [1,2,3,4] `shouldBe` Just 4
 
-    it "throws an error when called with an empty list" $
-      myLast [] `shouldThrow` anyErrorCall
+    it "returns Nothing when called with an empty list" $
+      myLast [] `shouldBe` (Nothing::(Maybe Int))
+
+  describe "myButLast (Problem 2)" $ do
+
+    it "returns the last but one element of a list" $
+      myButLast [1,2,3,4] `shouldBe` Just 3
+
+    it "returns Nothing when called with a singleton list" $
+      myButLast [1] `shouldBe` Nothing
+
+    it "returns Nothing when called with an empty list" $
+      myButLast [] `shouldBe` (Nothing::(Maybe Int))
+
+  describe "elementAt (Problem 3)" $ do
+
+    it "returns the element at the given index (1-indexed)" $
+      elementAt [3,4,1] 2 `shouldBe` Just 4
+
+    it "returns Nothing when the index is greater the length of the list" $
+      elementAt [3,4,1] 4 `shouldBe` Nothing
+
