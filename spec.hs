@@ -33,3 +33,7 @@ main = hspec $ do
     it "returns Nothing when the index is greater the length of the list" $
       elementAt [3,4,1] 4 `shouldBe` Nothing
 
+  describe "myLength (Problem 4)" $ do
+
+    it "returns the length of a list" $
+      myLength [1,2,3] `shouldBe` 3
