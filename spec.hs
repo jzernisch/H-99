@@ -55,3 +55,8 @@ main = hspec $ do
 
     it "flattens a NestedList and returns a list" $
       flatten (List [Elem 4, List [Elem 2, List [Elem 1, Elem 5]], Elem 3]) `shouldBe` [4,2,1,5,3]
+
+  describe "compress (Problem 8)" $ do
+
+    it "removes consecutive duplicates from a list" $
+      compress [1,1,2,3,3,3,1,2] `shouldBe` [1,2,3,1,2]

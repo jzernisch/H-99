@@ -54,3 +54,13 @@ module H99 where
   flatten (Elem x) = [x]
   flatten (List []) = []
   flatten (List (x:xs)) = flatten x ++ flatten (List xs)
+
+
+  -- Problem 8
+
+  compress :: Eq a => [a] -> [a]
+  compress [] = []
+  compress [x] = [x]
+  compress (x:y:xs)
+    | x == y    = compress (y:xs)
+    | otherwise = x:(compress (y:xs))
