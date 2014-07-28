@@ -95,3 +95,8 @@ module H99 where
 
 
   -- Problem 12
+
+  decodeModified :: Eq a => [ElementCount a] -> [a]
+  decodeModified = concatMap replicatedElement
+    where replicatedElement (Single element) = replicate 1 element
+          replicatedElement (Multiple n element) = replicate n element
