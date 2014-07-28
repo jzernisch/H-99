@@ -70,3 +70,8 @@ main = hspec $ do
 
     it "returns the so-called run-length encoding of a list" $
       encode "aaaabccaadeeee" `shouldBe` [(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')]
+
+  describe "encodeModified (Problem 11)" $ do
+
+    it "returns the so-called run-length encoding of a list in a modified version" $
+      encodeModified "aaaabcc" `shouldBe` [Multiple 4 'a',Single 'b',Multiple 2 'c']

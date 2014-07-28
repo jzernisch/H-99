@@ -82,3 +82,16 @@ module H99 where
   encode :: Eq a => [a] -> [(Int,a)]
   encode xs = map makeTuple (pack xs)
     where makeTuple xs = (length xs, head xs)
+
+
+  -- Problem 11
+
+  data ElementCount a = Single a | Multiple Int a deriving (Show, Eq)
+
+  encodeModified :: Eq a => [a] -> [ElementCount a]
+  encodeModified = map elementCount . encode
+    where elementCount (1, element) = Single element
+          elementCount (n, element) = Multiple n element
+
+
+  -- Problem 12
