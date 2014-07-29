@@ -113,3 +113,9 @@ module H99 where
     where encodedTail = encodeDirect (y:xs)
           incrElement (Single x) = (Multiple 2 x)
           incrElement (Multiple n x) = (Multiple (n+1) x)
+
+
+  -- Problem 14
+
+  dupli :: [a] -> [a]
+  dupli = foldr (\x acc -> (x:x:acc)) []

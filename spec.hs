@@ -85,3 +85,8 @@ main = hspec $ do
 
     it "returns the so-called run-length encoding of a list in a modified version" $
       encodeDirect "aaaabcc" `shouldBe` [Multiple 4 'a',Single 'b',Multiple 2 'c']
+
+  describe "dupli (Problem 14)" $ do
+
+    it "duplicates each element of a list" $
+      dupli "abcca" `shouldBe` "aabbccccaa"
