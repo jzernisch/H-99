@@ -80,3 +80,8 @@ main = hspec $ do
 
     it "decodes a list encoded with encodeModified" $
       decodeModified [Multiple 4 'a',Single 'b',Multiple 2 'c'] `shouldBe` "aaaabcc"
+
+  describe "encodeDirect (Problem 13)" $ do
+
+    it "returns the so-called run-length encoding of a list in a modified version" $
+      encodeDirect "aaaabcc" `shouldBe` [Multiple 4 'a',Single 'b',Multiple 2 'c']

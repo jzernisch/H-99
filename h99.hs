@@ -100,3 +100,16 @@ module H99 where
   decodeModified = concatMap replicatedElement
     where replicatedElement (Single element) = replicate 1 element
           replicatedElement (Multiple n element) = replicate n element
+
+
+  -- Problem 13
+
+  encodeDirect :: Eq a => [a] -> [ElementCount a]
+  encodeDirect [] = []
+  encodeDirect [x] = [Single x]
+  encodeDirect (x:y:xs)
+    | x == y    = (incrElement $ head encodedTail):(tail encodedTail)
+    | otherwise = (Single x):encodedTail
+    where encodedTail = encodeDirect (y:xs)
+          incrElement (Single x) = (Multiple 2 x)
+          incrElement (Multiple n x) = (Multiple (n+1) x)
