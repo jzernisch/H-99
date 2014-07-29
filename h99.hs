@@ -119,3 +119,9 @@ module H99 where
 
   dupli :: [a] -> [a]
   dupli = foldr (\x acc -> (x:x:acc)) []
+
+
+  -- Problem 15
+
+  repli :: [a] -> Int -> [a]
+  repli xs n = foldr (\x -> (replicate n x ++)) [] xs

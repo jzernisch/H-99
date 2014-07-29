@@ -90,3 +90,9 @@ main = hspec $ do
 
     it "duplicates each element of a list" $
       dupli "abcca" `shouldBe` "aabbccccaa"
+
+  describe "repli (Problem 15)" $ do
+
+    it "replicates each element of a list a given number of times" $
+      repli "abbc" 3 `shouldBe` "aaabbbbbbccc"
+
