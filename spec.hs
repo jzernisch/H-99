@@ -101,4 +101,9 @@ main = hspec $ do
     it "drops every n-th element of a list" $
       dropEvery "abcdefgh" 3 `shouldBe` "abdegh"
 
+  describe "split (Problem 17)" $ do
+
+    it "splits a given list into two parts where the first has a given length" $
+      split "myname" 2 `shouldBe` ("my","name")
+
 

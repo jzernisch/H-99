@@ -133,3 +133,11 @@ module H99 where
   dropEvery [] n = []
   dropEvery xs n = take (n-1) xs ++ dropEvery (drop n xs) n
 
+
+  -- Problem 17
+
+  split :: [a] -> Int -> ([a],[a])
+  split xs 0 = ([],xs)
+  split (x:xs) n = (x:(fst splittedTail), snd splittedTail)
+    where splittedTail = split xs (n-1)
+
