@@ -148,3 +148,12 @@ module H99 where
   slice [] _ _ = []
   slice xs 1 n = take n xs
   slice xs i k = slice (tail xs) (i-1) (k-1)
+
+
+  -- Problem 19
+
+  rotate :: [a] -> Int -> [a]
+  rotate xs n
+    | n < 0     = rotate xs (n + length xs)
+    | otherwise = drop n xs ++ take n xs
+

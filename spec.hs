@@ -111,3 +111,12 @@ main = hspec $ do
     it "extracts a slice from a list for given indices (1-indexed)" $
       slice "acoolthing" 2 5 `shouldBe` "cool"
 
+  describe "rotate (Problem 19)" $ do
+
+    it "rotates a list n places to the left" $
+      rotate "abcde" 2 `shouldBe` "cdeab"
+
+    it "works also for negative values" $
+      rotate "abcde" (-1) `shouldBe` "eabcd"
+
+
