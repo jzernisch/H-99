@@ -96,3 +96,9 @@ main = hspec $ do
     it "replicates each element of a list a given number of times" $
       repli "abbc" 3 `shouldBe` "aaabbbbbbccc"
 
+  describe "dropEvery (Problem 16)" $ do
+
+    it "drops every n-th element of a list" $
+      dropEvery "abcdefgh" 3 `shouldBe` "abdegh"
+
+
