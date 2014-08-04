@@ -157,3 +157,10 @@ module H99 where
     | n < 0     = rotate xs (n + length xs)
     | otherwise = drop n xs ++ take n xs
 
+
+  -- Problem 20
+
+  removeAt :: [a] -> Int -> (a,[a])
+  removeAt (x:xs) 1 = (x, xs)
+  removeAt (x:xs) n = (fst resultForTail, x:(snd resultForTail))
+    where resultForTail = removeAt xs (n-1)

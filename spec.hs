@@ -119,4 +119,11 @@ main = hspec $ do
     it "works also for negative values" $
       rotate "abcde" (-1) `shouldBe` "eabcd"
 
+  describe "removeAt (Problem 20)" $ do
+
+    it "removes from a list the element of a given index" $
+      removeAt "abcde" 2 `shouldBe` ('b',"acde")
+
+
+
 
