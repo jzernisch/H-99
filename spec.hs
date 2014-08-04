@@ -106,4 +106,8 @@ main = hspec $ do
     it "splits a given list into two parts where the first has a given length" $
       split "myname" 2 `shouldBe` ("my","name")
 
+  describe "slice (Problem 18)" $ do
+
+    it "extracts a slice from a list for given indices (1-indexed)" $
+      slice "acoolthing" 2 5 `shouldBe` "cool"
 

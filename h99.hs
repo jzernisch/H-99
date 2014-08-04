@@ -141,3 +141,10 @@ module H99 where
   split (x:xs) n = (x:(fst splittedTail), snd splittedTail)
     where splittedTail = split xs (n-1)
 
+
+  -- Problem 18
+
+  slice :: [a] -> Int -> Int -> [a]
+  slice [] _ _ = []
+  slice xs 1 n = take n xs
+  slice xs i k = slice (tail xs) (i-1) (k-1)
