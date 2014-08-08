@@ -164,3 +164,11 @@ module H99 where
   removeAt (x:xs) 1 = (x, xs)
   removeAt (x:xs) n = (fst resultForTail, x:(snd resultForTail))
     where resultForTail = removeAt xs (n-1)
+
+
+  -- Problem 21
+
+  insertAt :: a -> [a] -> Int -> [a]
+  insertAt y xs 1 = (y:xs)
+  insertAt y (x:xs) n = x:(insertAt y xs (n-1))
+

@@ -124,6 +124,11 @@ main = hspec $ do
     it "removes from a list the element of a given index" $
       removeAt "abcde" 2 `shouldBe` ('b',"acde")
 
+  describe "insertAt (Problem 21)" $ do
+
+    it "inserts an element at a given position into a list" $
+      insertAt 'X' "abcd" 2 `shouldBe` "aXbcd"
+
 
 
 
