@@ -129,6 +129,12 @@ main = hspec $ do
     it "inserts an element at a given position into a list" $
       insertAt 'X' "abcd" 2 `shouldBe` "aXbcd"
 
+  describe "insertAt (Problem 21)" $ do
 
+    it "inserts an element at a given position into a list" $
+      insertAt 'X' "abcd" 2 `shouldBe` "aXbcd"
 
+  describe "range (Problem 22)" $ do
 
+    it "creates a list containing all integers within a given range" $
+      range 4 9  `shouldBe` [4,5,6,7,8,9]

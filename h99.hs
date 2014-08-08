@@ -172,3 +172,11 @@ module H99 where
   insertAt y xs 1 = (y:xs)
   insertAt y (x:xs) n = x:(insertAt y xs (n-1))
 
+
+  -- Problem 22
+
+  range :: Int -> Int -> [Int]
+  range a b = [a..b]
+
+
+
