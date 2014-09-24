@@ -1,6 +1,7 @@
 module H99 where
 
   import Data.Maybe
+  import System.Random (StdGen, randomRs)
 
   -- Problem 1
 
@@ -179,4 +180,9 @@ module H99 where
   range a b = [a..b]
 
 
+  -- Problem 23
+
+  rndSelect :: StdGen -> [a] -> Int -> [a]
+  rndSelect g xs n = map (xs!!) randomIndices
+    where randomIndices = take n $ randomRs (0, length xs - 1) g
 

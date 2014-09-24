@@ -2,6 +2,7 @@ module H99Spec where
 
 import Test.Hspec
 import H99
+import System.Random (mkStdGen)
 
 main :: IO ()
 main = hspec $ do
@@ -133,3 +134,13 @@ main = hspec $ do
 
     it "creates a list containing all integers within a given range" $
       range 4 9  `shouldBe` [4,5,6,7,8,9]
+
+  describe "rndSelect (Problem 23)" $ do
+
+    it "creates a list of the given length" $ do
+      length (rndSelect (mkStdGen 1) "dcjknj" 3) `shouldBe` 3
+
+    it "creates a list whose elements form a subset of the given list" $ do
+      all (flip elem "dcjk") (rndSelect (mkStdGen 1) "dcjk" 3) `shouldBe` True
+
+
