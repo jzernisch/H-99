@@ -1,7 +1,7 @@
 module H99 where
 
   import Data.Maybe
-  import System.Random (StdGen, randomRs)
+  import System.Random (StdGen, randomRs, randomR)
 
   -- Problem 1
 
@@ -186,3 +186,12 @@ module H99 where
   rndSelect g xs n = map (xs!!) randomIndices
     where randomIndices = take n $ randomRs (0, length xs - 1) g
 
+
+  -- Problem 24
+
+  rndSelectFromRange :: StdGen -> Int -> Int -> [Int]
+  rndSelectFromRange _ 0 _ = []
+  rndSelectFromRange g k n = randomEl:randomsFromRemainingList
+    where (randomEl, g') = randomR (1,n) g
+          remainingList = [1..(randomEl-1)] ++ [(randomEl+1)..n]
+          randomsFromRemainingList = map (remainingList!!) (rndSelectFromRange g' (k-1) (n-1))

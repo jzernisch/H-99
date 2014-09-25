@@ -3,6 +3,7 @@ module H99Spec where
 import Test.Hspec
 import H99
 import System.Random (mkStdGen)
+import Data.List (nub)
 
 main :: IO ()
 main = hspec $ do
@@ -137,10 +138,19 @@ main = hspec $ do
 
   describe "rndSelect (Problem 23)" $ do
 
-    it "creates a list of the given length" $ do
+    it "creates a list of the given length" $
       length (rndSelect (mkStdGen 1) "dcjknj" 3) `shouldBe` 3
 
-    it "creates a list whose elements form a subset of the given list" $ do
+    it "creates a list whose elements form a subset of the given list" $
       all (flip elem "dcjk") (rndSelect (mkStdGen 1) "dcjk" 3) `shouldBe` True
 
+  describe "rndSelectFromRange (Problem 24)" $ do
 
+    it "creates a list of the given length" $
+      length (rndSelectFromRange (mkStdGen 1) 6 49) `shouldBe` 6
+
+    it "creates a list whose elements form a subset of 1..n" $
+      all (flip elem [1..49]) (rndSelectFromRange (mkStdGen 1) 6 49) `shouldBe` True
+
+    it "creates a list with no duplicates" $
+      length (nub (rndSelectFromRange (mkStdGen 1) 6 49)) `shouldBe` 6
