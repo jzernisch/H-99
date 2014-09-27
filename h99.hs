@@ -2,6 +2,7 @@ module H99 where
 
   import Data.Maybe
   import System.Random (StdGen, randomRs, randomR)
+  import Data.List (nub)
 
   -- Problem 1
 
@@ -195,3 +196,11 @@ module H99 where
     where (randomEl, g') = randomR (1,n) g
           remainingList = [1..(randomEl-1)] ++ [(randomEl+1)..n]
           randomsFromRemainingList = map (remainingList!!) (rndSelectFromRange g' (k-1) (n-1))
+
+
+  -- Problem 25
+
+  rndPerm :: [a] -> StdGen -> [a]
+  rndPerm xs g = map (xs!!) randomIndices
+    where randomIndices = take n $ nub $ randomRs (0, n - 1) g
+          n = length xs

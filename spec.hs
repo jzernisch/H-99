@@ -3,7 +3,7 @@ module H99Spec where
 import Test.Hspec
 import H99
 import System.Random (mkStdGen)
-import Data.List (nub)
+import Data.List (nub, sort)
 
 main :: IO ()
 main = hspec $ do
@@ -154,3 +154,8 @@ main = hspec $ do
 
     it "creates a list with no duplicates" $
       length (nub (rndSelectFromRange (mkStdGen 1) 6 49)) `shouldBe` 6
+
+  describe "rndPerm (Problem 25)" $ do
+
+    it "creates a permutation of the elements of a list" $
+      sort (rndPerm [4,2,8,1,6] (mkStdGen 1)) `shouldBe` [1,2,4,6,8]
