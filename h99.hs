@@ -183,24 +183,22 @@ module H99 where
 
   -- Problem 23
 
-  rndSelect :: StdGen -> [a] -> Int -> [a]
-  rndSelect g xs n = map (xs!!) randomIndices
+  rndSelect :: [a] -> Int -> StdGen -> [a]
+  rndSelect xs n g = map (xs!!) randomIndices
     where randomIndices = take n $ randomRs (0, length xs - 1) g
 
 
   -- Problem 24
 
-  rndSelectFromRange :: StdGen -> Int -> Int -> [Int]
-  rndSelectFromRange _ 0 _ = []
-  rndSelectFromRange g k n = randomEl:randomsFromRemainingList
-    where (randomEl, g') = randomR (1,n) g
-          remainingList = [1..(randomEl-1)] ++ [(randomEl+1)..n]
-          randomsFromRemainingList = map (remainingList!!) (rndSelectFromRange g' (k-1) (n-1))
+  rndSelectFromRange :: Int -> Int -> StdGen -> [Int]
+  rndSelectFromRange k n g = rndSelectFromList k [1..n] g
+
+  rndSelectFromList :: Int -> [a] -> StdGen -> [a]
+  rndSelectFromList k xs g = map (xs!!) randomIndices
+    where randomIndices = take k $ nub $ randomRs (0, length xs - 1) g
 
 
   -- Problem 25
 
   rndPerm :: [a] -> StdGen -> [a]
-  rndPerm xs g = map (xs!!) randomIndices
-    where randomIndices = take n $ nub $ randomRs (0, n - 1) g
-          n = length xs
+  rndPerm xs g = rndSelectFromList (length xs) xs g
