@@ -2,7 +2,7 @@ module H99 where
 
   import Data.Maybe
   import System.Random (StdGen, randomRs, randomR)
-  import Data.List (nub)
+  import Data.List (nub, (\\))
 
   -- Problem 1
 
@@ -214,3 +214,10 @@ module H99 where
     | k == 1            = map (:[]) all
     | k == length all   = [all]
     | otherwise         = map (x:) (combinations (k-1) xs) ++ filter (not . elem x) (combinations k xs)
+
+
+  -- Problem 27
+
+  group :: Eq a => [Int] -> [a] -> [[[a]]]
+  group _ [] = [[]]
+  group (n:ns) xs = [ p:q | p <- combinations n xs, q <- group ns (xs \\ p) ]

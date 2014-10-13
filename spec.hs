@@ -173,3 +173,8 @@ main = hspec $ do
 
     it "returns [[]] if k == 0" $
       combinations 0 "abcd" `shouldBe` [[]]
+
+  describe "group (Problem 27)" $ do
+
+    it "returns all possible partitions into subsets of the given sizes" $
+      group [2,1] "abc" `shouldBe` [["ab","c"], ["ac","b"], ["bc", "a"]]
