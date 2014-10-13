@@ -183,3 +183,8 @@ main = hspec $ do
 
     it "sorts a list of lists according to their lengths" $
       lsort ["abc","d","a", "fh"] `shouldBe` ["d", "a", "fh", "abc"]
+
+  describe "lfsort (Problem 28b)" $ do
+
+    it "sorts a list of lists according to their length frequencies" $
+      lfsort ["abc", "xy", "d", "a", "fh", "gh"] `shouldBe` ["abc","d","a","xy","fh","gh"]

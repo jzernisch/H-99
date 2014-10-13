@@ -227,3 +227,10 @@ module H99 where
 
   lsort :: [[a]] -> [[a]]
   lsort xs = sortBy (\x y -> compare (length x) (length y)) xs
+
+
+  -- Problem 28b
+
+  lfsort :: [[a]] -> [[a]]
+  lfsort xs = sortBy (\x y -> compare (lengthFrequency x) (lengthFrequency y)) xs
+    where lengthFrequency list = length $ filter (\l -> length l == length list) xs
