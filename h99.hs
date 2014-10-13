@@ -2,7 +2,7 @@ module H99 where
 
   import Data.Maybe
   import System.Random (StdGen, randomRs, randomR)
-  import Data.List (nub, (\\))
+  import Data.List (nub, (\\), sortBy)
 
   -- Problem 1
 
@@ -221,3 +221,9 @@ module H99 where
   group :: Eq a => [Int] -> [a] -> [[[a]]]
   group _ [] = [[]]
   group (n:ns) xs = [ p:q | p <- combinations n xs, q <- group ns (xs \\ p) ]
+
+
+  -- Problem 28a
+
+  lsort :: [[a]] -> [[a]]
+  lsort xs = sortBy (\x y -> compare (length x) (length y)) xs

@@ -178,3 +178,8 @@ main = hspec $ do
 
     it "returns all possible partitions into subsets of the given sizes" $
       group [2,1] "abc" `shouldBe` [["ab","c"], ["ac","b"], ["bc", "a"]]
+
+  describe "lsort (Problem 28a)" $ do
+
+    it "sorts a list of lists according to their lengths" $
+      lsort ["abc","d","a", "fh"] `shouldBe` ["d", "a", "fh", "abc"]
