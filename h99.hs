@@ -202,3 +202,15 @@ module H99 where
 
   rndPerm :: [a] -> StdGen -> [a]
   rndPerm xs g = rndSelectFromList (length xs) xs g
+
+
+  -- Problem 26
+
+  combinations :: Eq a => Int -> [a] -> [[a]]
+  combinations k all@(x:xs)
+    | k < 0             = []
+    | k == 0            = [[]]
+    | k > length all    = []
+    | k == 1            = map (:[]) all
+    | k == length all   = [all]
+    | otherwise         = map (x:) (combinations (k-1) xs) ++ filter (not . elem x) (combinations k xs)

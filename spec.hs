@@ -159,3 +159,17 @@ main = hspec $ do
 
     it "creates a permutation of the elements of a list" $
       sort (rndPerm [4,2,8,1,6] (mkStdGen 1)) `shouldBe` [1,2,4,6,8]
+
+  describe "combinations (Problem 26)" $ do
+
+    it "creates all possible k-subsets of a list" $
+      combinations 2 "abcd" `shouldBe` ["ab","ac","ad","bc","bd","cd"]
+
+    it "returns the empty set if k is greater than the length of the list" $
+      combinations 5 "abcd" `shouldBe` []
+
+    it "returns the empty set if k < 0" $
+      combinations 5 "abcd" `shouldBe` []
+
+    it "returns [[]] if k == 0" $
+      combinations 0 "abcd" `shouldBe` [[]]
