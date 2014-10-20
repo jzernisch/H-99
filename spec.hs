@@ -188,3 +188,14 @@ main = hspec $ do
 
     it "sorts a list of lists according to their length frequencies" $
       lfsort ["abc", "xy", "d", "a", "fh", "gh"] `shouldBe` ["abc","d","a","xy","fh","gh"]
+
+  describe "isPrime (Problem 31)" $ do
+
+    it "returns True for prime numbers" $
+      isPrime 7 `shouldBe` True
+
+    it "returns False for non-prime numbers" $
+      isPrime 4 `shouldBe` False
+
+    it "is correct for 1" $
+      isPrime 1 `shouldBe` False

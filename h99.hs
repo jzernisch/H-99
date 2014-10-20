@@ -234,3 +234,10 @@ module H99 where
   lfsort :: [[a]] -> [[a]]
   lfsort xs = sortBy (\x y -> compare (lengthFrequency x) (lengthFrequency y)) xs
     where lengthFrequency list = length $ filter (\l -> length l == length list) xs
+
+
+  -- Problem 31
+
+  isPrime :: Int -> Bool
+  isPrime 1 = False
+  isPrime n = not $ any (\k -> n `mod` k == 0) [2..(n `div` 2)]
