@@ -248,3 +248,9 @@ module H99 where
   myGCD :: Int -> Int -> Int
   myGCD a 0 = a
   myGCD a b = myGCD b $ abs (a `mod` b)
+
+
+  -- Problem 33
+
+  coprime :: Int -> Int -> Bool
+  coprime a b = myGCD a b == 1

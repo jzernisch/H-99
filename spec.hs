@@ -210,3 +210,11 @@ main = hspec $ do
 
     it "works does not return negative numbers" $
       myGCD (-8) (-6) `shouldBe` 2
+
+  describe "coprime (Problem 33)" $ do
+
+    it "returns True if the given numbers are coprime" $
+      coprime 8 7 `shouldBe` True
+
+    it "returns False if the given numbers are not coprime" $
+      coprime 8 6 `shouldBe` False
