@@ -199,3 +199,14 @@ main = hspec $ do
 
     it "is correct for 1" $
       isPrime 1 `shouldBe` False
+
+  describe "myGCD (Problem 32)" $ do
+
+    it "returns the greatest common divisor for a pair of integers" $
+      myGCD 8 6 `shouldBe` 2
+
+    it "works when one of the numbers is 0" $
+      myGCD 2 0 `shouldBe` 2
+
+    it "works does not return negative numbers" $
+      myGCD (-8) (-6) `shouldBe` 2

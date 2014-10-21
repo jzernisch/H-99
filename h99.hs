@@ -241,3 +241,10 @@ module H99 where
   isPrime :: Int -> Bool
   isPrime 1 = False
   isPrime n = not $ any (\k -> n `mod` k == 0) [2..(n `div` 2)]
+
+
+  -- Problem 32
+
+  myGCD :: Int -> Int -> Int
+  myGCD a 0 = a
+  myGCD a b = myGCD b $ abs (a `mod` b)
