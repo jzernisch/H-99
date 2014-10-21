@@ -218,3 +218,8 @@ main = hspec $ do
 
     it "returns False if the given numbers are not coprime" $
       coprime 8 6 `shouldBe` False
+
+  describe "totientPhi (Problem 34)" $ do
+
+    it "returns all numbers between that are >= 1, smaller and coprime" $
+      totientPhi 10 `shouldBe` 4

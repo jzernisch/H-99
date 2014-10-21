@@ -254,3 +254,9 @@ module H99 where
 
   coprime :: Int -> Int -> Bool
   coprime a b = myGCD a b == 1
+
+
+  -- Problem 34
+
+  totientPhi :: Int -> Int
+  totientPhi n = length $ filter (coprime n) [1..n-1]
